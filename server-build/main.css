@@ -150,6 +150,10 @@
   .flight-filter {
     padding: 15px;
   }
+  .year-button {
+    margin: 8px;
+    padding: 5px;
+  }
 }
 #root {
   margin: 0 auto;
@@ -168,7 +172,13 @@
   flex-wrap: wrap;
 }
 @media only screen and (min-width: 700px) and (max-width: 1024px) {
-.year-button {
-  margin: 5px;
-}
+  .year-button {
+    margin: 5px;
+  }
+  .flight-detail-container {
+    margin: 5px;
+  }
+  .flight-filter {
+    padding: 10px;
+  }
 }
