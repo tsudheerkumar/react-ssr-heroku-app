@@ -115,10 +115,17 @@
 @media only screen and (max-width: 700px) {
   .flight-filter {
     padding: 15px;
+    margin: 0;
   }
   .year-button {
     margin: 8px;
     padding: 5px;
+  }
+  .radio-toolbar {
+    margin: 5px 0 !important;
+  }
+  .radio-toolbar label {
+    font-size: 18px;
   }
 }
 #root {
@@ -147,4 +154,7 @@
   .flight-filter {
     padding: 10px;
   }
+}
+.radio-toolbar {
+  text-align: center;
 }

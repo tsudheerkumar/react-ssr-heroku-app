@@ -1,32 +1,59 @@
 import React ,{useEffect, useState} from 'react';
 import Flight from './Flight';
+import NoFlight from './NoFlight';
 import RadioButton from './RadioButton';
 import axios from 'axios';
 //import "./index.css";
+const yearsData =[
+    '2006',
+    '2007',
+    '2008',
+    '2009',
+    '2010',
+    '2011',
+    '2012',
+    '2013',
+    '2014',
+    '2015',
+    '2016',
+    '2017',
+    '2018',
+    '2019',
+    '2020'
+];
 export default props => {
     const [flightData, setFlightData] = useState(props.flights);
-    const [isLaunched, setIsLaunched] = useState("No");
-    const [isLanded, setIsLanded] = useState("No");
+    const [isLaunched, setIsLaunched] = useState('No');
+    const [isLanded, setIsLanded] = useState('No');
+    const [launchYear, setLaunchUear] = useState('1990');
     const launchChangeHandler = (event) => {
         setIsLaunched(event.target.value);
     }
     const landChangeHandler = (event) => {
         setIsLanded(event.target.value);
     }
+    const yearChangeHandler = (event) => {
+        setLaunchUear(event.target.value);
+    }
     useEffect(() => {
         fetchFlights(getUrl());
-      }, [isLaunched,isLanded]);
+      }, [isLaunched,isLanded,launchYear]);
     const getUrl = () => {
+        console.log("islaunched -->",isLaunched);
+        console.log("isLanded -->",isLanded);
+        console.log("launchYear -->",launchYear);
         let baseUrl = "https://api.spaceXdata.com/v3/launches?limit=100";
         let finalUrl ='';
         if (isLaunched=="Yes"&& isLanded=="Yes") {
-            finalUrl=baseUrl+"&launch_success=true&land_success=true";
+            finalUrl=baseUrl+"&launch_success=true&land_success=true&launch_year="+launchYear;
         }else if(isLaunched=="Yes"&& isLanded=="No"){
-            finalUrl=baseUrl+"&launch_success=true";
+            finalUrl=baseUrl+"&launch_success=true&launch_year="+launchYear;
         }else if(isLaunched=="No"&& isLanded=="Yes"){
-            finalUrl=baseUrl+"&land_success=true";
-        }else{
+            finalUrl=baseUrl+"&land_success=true&launch_year="+launchYear;
+        }else if(isLaunched=='No' && isLanded=='No' && launchYear=='1990'){
             finalUrl=baseUrl;
+        }else{
+            finalUrl=baseUrl+"&launch_year="+launchYear;
         }
         return finalUrl;
     }
@@ -43,21 +70,17 @@ export default props => {
         <div className="col-s-12 col-m-3 col-l-2 flight-filter">
                     <div className="flight-launch-land-year row">
                         <h5 className="flight-launch-title">Launch Year</h5>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2006</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2007</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2008</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2009</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button"> 2010</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2011</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2012</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2013</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2014</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2015</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2016</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2017</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2018</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2019</button>
-                        <button className="col-s-5 col-m-6 col-l-6 year-button">2020</button>
+                        {
+                            yearsData.map((year,index)=>
+                                <RadioButton 
+                                    changed={yearChangeHandler} 
+                                    id={index + year} 
+                                    isSelected={ launchYear === year } 
+                                    label={year}
+                                    value={year}
+                                />
+                            )
+                        }
                     </div>
                     <div className="flight-launch">
                         <h5 className="flight-launch-title row">Successful Launch</h5>
@@ -96,8 +119,10 @@ export default props => {
                 </div>
               <div className="flight-container col-s-12 col-m-9 col-l-10 "> 
             {flightData && flightData.map(flight=>(<Flight flight={flight}></Flight>))}
-               
-            </div>
+            {flightData.length == 0 &&
+                <NoFlight isLaunched={isLaunched} isLanded={isLanded} launchYear={launchYear}></NoFlight>
+            }
+        </div>
     </div>
     <footer>Developed by: Sudheer Kumar Tumarada</footer>
     </>
