@@ -1,5 +1,6 @@
 .radio-toolbar {
-    margin: 10px;
+    margin: 0 !important;
+    width: 50% !important;
   }
   
   .radio-toolbar input[type="radio"] {

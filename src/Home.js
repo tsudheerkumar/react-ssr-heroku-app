@@ -14,24 +14,24 @@ export default props => {
     return <>
         <header>SpacEx Launch Programs</header>
         <div className="row">
-        <div className="col-s-12 col-m-2 col-l-2 flight-filter">
+        <div className="col-s-12 col-m-3 col-l-2 flight-filter">
                     <div className="flight-launch-land-year row">
                         <h5 className="flight-launch-title">Launch Year</h5>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2006</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2007</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2008</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2009</button>
-                        <button className="col-s-6 col-m-6 col-l-6 "> 2010</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2011</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2012</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2013</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2014</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2015</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2016</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2017</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2018</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2019</button>
-                        <button className="col-s-6 col-m-6 col-l-6 ">2020</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2006</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2007</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2008</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2009</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button"> 2010</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2011</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2012</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2013</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2014</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2015</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2016</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2017</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2018</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2019</button>
+                        <button className="col-s-6 col-m-6 col-l-6 year-button">2020</button>
                     </div>
                     <div className="flight-launch">
                         <h5 className="flight-launch-title row">Successful Launch</h5>
@@ -68,7 +68,7 @@ export default props => {
                     />  
                     </div>
                 </div>
-              <div className="flight-container col-s-12 col-m-10 col-l-10 "> 
+              <div className="flight-container col-s-12 col-m-9 col-l-10 "> 
             {props.flights && props.flights.map(flight=>(<Flight flight={flight}></Flight>))}
                
             </div>
