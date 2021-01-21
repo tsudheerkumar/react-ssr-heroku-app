@@ -49,12 +49,12 @@ export default props => {
         if(launchYear){
             finalUrl = finalUrl+"&launch_year="+launchYear;
         }
-        if(isLaunched){
-            let label = isLaunched=='Yes'?true:false;
-            finalUrl=finalUrl+"&land_success="+label;
-        }
         if(isLanded){
             let label = isLanded=='Yes'?true:false;
+            finalUrl=finalUrl+"&land_success="+label;
+        }
+        if(isLaunched){
+            let label = isLaunched=='Yes'?true:false;
             finalUrl=finalUrl+"&launch_success="+label;
         }
         return finalUrl;
