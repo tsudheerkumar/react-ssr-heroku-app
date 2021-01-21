@@ -45,18 +45,17 @@ export default props => {
       }, [isLaunched,isLanded,launchYear]);
     
     const getUrl = () => {
-        let baseUrl = "https://api.spaceXdata.com/v3/launches?limit=100";
-        let finalUrl ='';
-        if (isLaunched=="Yes"&& isLanded=="Yes") {
-            finalUrl=baseUrl+"&launch_success=true&land_success=true&launch_year="+launchYear;
-        }else if(isLaunched=="Yes"&& isLanded=="No"){
-            finalUrl=baseUrl+"&launch_success=true&land_success=false&launch_year="+launchYear;
-        }else if(isLaunched=="No"&& isLanded=="Yes"){
-            finalUrl=baseUrl+"&launch_success=false&land_success=true&launch_year="+launchYear;
-        }else if(isLaunched=='' && isLanded=='' && launchYear==''){
-            finalUrl=baseUrl;
-        }else{
-            finalUrl=baseUrl+"&launch_year="+launchYear;
+        let finalUrl ="https://api.spaceXdata.com/v3/launches?limit=100";
+        if(launchYear){
+            finalUrl = finalUrl+"&launch_year="+launchYear;
+        }
+        if(isLaunched){
+            let label = isLaunched=='Yes'?true:false;
+            finalUrl=finalUrl+"&land_success="+label;
+        }
+        if(isLanded){
+            let label = isLanded=='Yes'?true:false;
+            finalUrl=finalUrl+"&launch_success="+label;
         }
         return finalUrl;
     }
