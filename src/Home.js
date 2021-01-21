@@ -23,9 +23,9 @@ const yearsData =[
 ];
 export default props => {
     const [flightData, setFlightData] = useState(props.flights);
-    const [isLaunched, setIsLaunched] = useState('No');
-    const [isLanded, setIsLanded] = useState('No');
-    const [launchYear, setLaunchUear] = useState('1990');
+    const [isLaunched, setIsLaunched] = useState('');
+    const [isLanded, setIsLanded] = useState('');
+    const [launchYear, setLaunchUear] = useState('');
     const [isMount, setIsMount] = useState(true);
     const launchChangeHandler = (event) => {
         setIsLaunched(event.target.value);
@@ -50,10 +50,10 @@ export default props => {
         if (isLaunched=="Yes"&& isLanded=="Yes") {
             finalUrl=baseUrl+"&launch_success=true&land_success=true&launch_year="+launchYear;
         }else if(isLaunched=="Yes"&& isLanded=="No"){
-            finalUrl=baseUrl+"&launch_success=true&launch_year="+launchYear;
+            finalUrl=baseUrl+"&launch_success=true&land_success=false&launch_year="+launchYear;
         }else if(isLaunched=="No"&& isLanded=="Yes"){
-            finalUrl=baseUrl+"&land_success=true&launch_year="+launchYear;
-        }else if(isLaunched=='No' && isLanded=='No' && launchYear=='1990'){
+            finalUrl=baseUrl+"&launch_success=false&land_success=true&launch_year="+launchYear;
+        }else if(isLaunched=='' && isLanded=='' && launchYear==''){
             finalUrl=baseUrl;
         }else{
             finalUrl=baseUrl+"&launch_year="+launchYear;
@@ -73,6 +73,7 @@ export default props => {
         <div className="col-s-12 col-m-3 col-l-2 flight-filter">
                     <div className="flight-launch-land-year row">
                         <h5 className="flight-launch-title">Launch Year</h5>
+                        <div>
                         {
                             yearsData.map((year,index)=>
                                 <RadioButton 
@@ -83,9 +84,9 @@ export default props => {
                                     value={year}
                                 />
                             )
-                        }
+                        }</div>
                     </div>
-                    <div className="flight-launch">
+                    <div className="flight-launch" role="form">
                         <h5 className="flight-launch-title row">Successful Launch</h5>
                         <RadioButton 
                         changed={launchChangeHandler} 

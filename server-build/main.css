@@ -190,6 +190,12 @@
     padding: 10px;
   }
 }
+@media only screen and (min-width: 700px) {
+  .flight-filter {
+    position: sticky;
+    top: 0;
+  }
+}
 .radio-toolbar {
   text-align: center;
 }
