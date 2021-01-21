@@ -26,6 +26,7 @@ export default props => {
     const [isLaunched, setIsLaunched] = useState('No');
     const [isLanded, setIsLanded] = useState('No');
     const [launchYear, setLaunchUear] = useState('1990');
+    const [isMount, setIsMount] = useState(true);
     const launchChangeHandler = (event) => {
         setIsLaunched(event.target.value);
     }
@@ -36,12 +37,14 @@ export default props => {
         setLaunchUear(event.target.value);
     }
     useEffect(() => {
+        if(isMount){
+            setIsMount(false);
+            return;
+        }
         fetchFlights(getUrl());
       }, [isLaunched,isLanded,launchYear]);
+    
     const getUrl = () => {
-        console.log("islaunched -->",isLaunched);
-        console.log("isLanded -->",isLanded);
-        console.log("launchYear -->",launchYear);
         let baseUrl = "https://api.spaceXdata.com/v3/launches?limit=100";
         let finalUrl ='';
         if (isLaunched=="Yes"&& isLanded=="Yes") {
