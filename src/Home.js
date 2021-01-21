@@ -89,14 +89,14 @@ export default props => {
                         <h5 className="flight-launch-title row">Successful Launch</h5>
                         <RadioButton 
                         changed={launchChangeHandler} 
-                        id="1" 
+                        id="1Yes" 
                         isSelected={ isLaunched === "Yes" } 
                         label="True" 
                         value="Yes" 
                     />
                         <RadioButton 
                         changed={launchChangeHandler} 
-                        id="2" 
+                        id="2Yes" 
                         isSelected={ isLaunched === "No" } 
                         label="False" 
                         value="No" 
@@ -106,14 +106,14 @@ export default props => {
                         <h5 className="flight-landtitle">Successful Land</h5>
                         <RadioButton 
                         changed={landChangeHandler} 
-                        id="3" 
+                        id="3True" 
                         isSelected={ isLanded === "Yes" } 
                         label="True" 
                         value="Yes" 
                     />
                         <RadioButton 
                         changed={landChangeHandler} 
-                        id="4" 
+                        id="4False" 
                         isSelected={ isLanded === "No" } 
                         label="False" 
                         value="No" 
