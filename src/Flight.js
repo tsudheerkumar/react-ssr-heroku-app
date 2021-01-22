@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 
 const Flight = (props) => {
   const {
-    flight_number,
-    mission_id,
-    launch_year,
-    launch_success,
-    mission_name,
-    links: {
-      mission_patch,
-      mission_patch_small,
-    },
-    rocket: {
-      first_stage
+    flight: {
+      flight_number,
+      mission_name,
+      mission_id,
+      launch_year,
+      rocket: {
+        first_stage,
+      },
+      launch_success,
+      links: {
+        mission_patch,
+        mission_patch_small,
+      },
     },
   } = props;
   return (
@@ -63,22 +65,10 @@ const Flight = (props) => {
   );
 };
 Flight.propTypes = {
-  flight_number: PropTypes.string,
-  mission_id: PropTypes.string,
-  launch_year: PropTypes.string,
-  launch_success: PropTypes.string,
-  mission_name: PropTypes.string,
-  links: PropTypes.objectOf,
-  rocket: PropTypes.objectOf,
+  flight: PropTypes.objectOf,
 };
 
 Flight.defaultProps = {
-  flight_number: '',
-  mission_id: '',
-  launch_year: '',
-  launch_success: '',
-  mission_name: '',
-  links: '',
-  rocket: '',
+  flight: '',
 };
 export default Flight;
