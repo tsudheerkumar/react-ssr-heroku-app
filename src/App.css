@@ -167,3 +167,9 @@
 footer {
   text-align: center;
 }
+.flight-launch-title {
+  text-align: center;
+  border-bottom: 2px solid #c1bdbc ;
+  width: 60%;
+  margin: 10px auto;
+}

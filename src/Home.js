@@ -108,8 +108,8 @@ const Home = (props) => {
               value="No"
             />
           </div>
-          <div className="flight-land">
-            <h5 className="flight-landtitle">Successful Land</h5>
+          <div className="flight-land" role="form">
+            <h5 className="flight-launch-title row">Successful Land</h5>
             <RadioButton
               changed={landChangeHandler}
               id="3True"

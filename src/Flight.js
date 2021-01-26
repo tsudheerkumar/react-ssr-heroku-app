@@ -26,7 +26,7 @@ const Flight = (props) => {
             <source srcSet={mission_patch_small} media="(max-width: 600px)" />
             <source srcSet={mission_patch} media="(min-width: 600px)" />
             <source srcSet="flight.jpg" />
-            <img src={mission_patch} className="flight-img" alt={mission_name} />
+            <img src={mission_patch} className="flight-img" alt={mission_name} width="200" height="200" />
           </picture>
           <div className="flight-body">
             <h5 className="flight-title">
@@ -40,7 +40,9 @@ const Flight = (props) => {
               Mission Ids:
               {' '}
               {mission_id && mission_id.map((id) => (
-                <li>{id}</li>
+                <ul>
+                  <li>{id}</li>
+                </ul>
               ))}
             </p>
             <p className="flight-launch-year">
