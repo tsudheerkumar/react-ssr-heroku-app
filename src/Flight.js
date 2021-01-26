@@ -40,7 +40,7 @@ const Flight = (props) => {
               Mission Ids:
               {' '}
               {mission_id && mission_id.map((id) => (
-                <ul>
+                <ul key={id}>
                   <li>{id}</li>
                 </ul>
               ))}

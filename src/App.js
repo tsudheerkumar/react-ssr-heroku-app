@@ -4,4 +4,5 @@ import './App.css';
 
 const Home = loadable(() => import('./Home'));
 
-export default (props) => <Home {...props} />;
+const App = (props) => (<Home {...props} />);
+export default App;

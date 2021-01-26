@@ -4,8 +4,8 @@ module.exports = {
     es2021: true,
   },
   extends: [
+    'airbnb',
     'plugin:react/recommended',
-    'eslint-config-airbnb'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -18,19 +18,19 @@ module.exports = {
     'react',
   ],
   rules: {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-props-no-spreading": "off",
-    'camelcase': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-props-no-spreading': 'off',
+    camelcase: 'off',
   },
   overrides: [
     {
-      "files": [
-        "**/*.test.js",
+      files: [
+        '**/*.test.js',
       ],
-      "env": {
-        "jest": true
-      }
-    }
-  ]
-  
+      env: {
+        jest: true,
+      },
+    },
+  ],
+
 };

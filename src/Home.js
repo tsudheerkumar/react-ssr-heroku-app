@@ -86,6 +86,7 @@ const Home = (props) => {
                                 isSelected={launchYear === year}
                                 label={year}
                                 value={year}
+                                key={year}
                               />
                             ))
                         }
@@ -127,7 +128,7 @@ const Home = (props) => {
           </div>
         </div>
         <div className="flight-container col-s-12 col-m-9 col-l-10 ">
-          {flightData && flightData.map((flight) => (<Flight flight={flight} />))}
+          {flightData && flightData.map((flight) => <Flight key={flight.id} flight={flight} />)}
           {flightData.length === 0
                 && <NoFlight isLaunched={isLaunched} isLanded={isLanded} launchYear={launchYear} />}
         </div>
